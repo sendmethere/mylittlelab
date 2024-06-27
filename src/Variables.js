@@ -20,7 +20,7 @@ const Variables = () => {
         <span className='px-2 py-1 rounded-full bg-orange-100 text-orange-600 shadow-md'>독립변인</span>을 설정할 때는 연구 질문에 맞는 명확한 변화를 선택하고, <span className='px-2 py-1 rounded-full bg-lime-100 text-lime-600 shadow-md'>종속변인</span>은 그 변화의 효과를 측정할 수 있는 구체적인 지표를 선정하세요.
         </div>
         <div className='flex flex-col md:flex-row gap-4 my-4'>
-            <div className='w-1/2 p-2 px-4 rounded-xl bg-orange-100'>
+            <div className='w-full md:w-1/2 p-2 px-4 rounded-xl bg-orange-100'>
                 <p className='text-center font-bold text-orange-700 my-2'>독립변인</p>
                 <input type="text"
                     className='w-full rounded-full border p-2'
@@ -49,7 +49,7 @@ const Variables = () => {
                     }
                 </div>
             </div>
-            <div className='w-1/2 p-2 rounded-xl bg-lime-100'>
+            <div className='w-full md:w-1/2 p-2 rounded-xl bg-lime-100'>
             <p className='text-center font-bold text-lime-700 my-2'>종속변인</p>
                 <input type="text"
                     className='w-full rounded-full border p-2'
