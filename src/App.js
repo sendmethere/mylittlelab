@@ -6,19 +6,7 @@ const App = () => {
   const {
     menu,
     currentMenu,
-    topic,
-    variables,
-    method,
-    data,
-    dataCollection,
-    consideration,
     setCurrentMenu,
-    setTopic,
-    setVariables,
-    setMethod,
-    setData,
-    setDataCollection,
-    setConsideration,
   } = useStore();
 
 
