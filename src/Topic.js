@@ -6,11 +6,17 @@ const Topic = () => {
         <div>
         <div className='flex flex-col mb-4'>
             <label className='font-bold text-lg my-2'>주제</label>
-            <input type="text" className='w-full rounded-full border p-4' value={topic} onChange={(e) => setTopic(e.target.value)} />
+            <input type="text" 
+                className='w-full rounded-full border p-4' 
+                value={topic} 
+                onChange={(e) => setTopic(e.target.value)}
+                placeholder='멋진 연구 주제를 입력하세요!' />
         </div>
         <hr className='my-4'/>
         <p className='font-bold text-lg my-2'>주제 잡는 Tip!</p>
-        <div className='rounded-xl text-[#4c8e67] p-4' style={{backgroundColor: 'rgba(114, 204, 143, 0.2)'}}> TIP</div>
+        <div className='rounded-xl text-[#4c8e67] p-4' style={{backgroundColor: 'rgba(114, 204, 143, 0.1)'}}>
+            데이터 기반 현장 연구의 주제는 구체적이고, 교육적 가치가 있어야 하며, 실행가능해야 합니다.
+        </div>
         <hr className='my-4'/>
         <p className='font-bold text-lg my-2'>주제 예시</p>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-2 justify-center'>

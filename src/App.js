@@ -31,11 +31,14 @@ const App = () => {
         }
         </div>
       <div style={{backgroundColor: menu[currentMenu].color }} className='w-full p-6 rounded-tr-xl rounded-b-xl shadow-md' >
-        <div className='bg-white rounded-xl w-full md:h-[450px] md:overflow-scroll p-6'>
+        <div className='bg-white rounded-xl w-full md:h-[450px] md:overflow-y-scroll p-6'>
           {menu[currentMenu].page}
         </div>
       </div>
       </div>
+      <p className='text-center text-gray-400'>
+        만든 이 : 김은서, <a className="underline" href="https://slashpage.com/taesangeom/5r398nmngr1wz2vwje7y?e=1">엄태상</a>
+      </p>
     </div>
   );
 };
