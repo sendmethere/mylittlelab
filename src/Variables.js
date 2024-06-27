@@ -7,7 +7,7 @@ const Variables = () => {
         <div className='flex flex-col mb-4'>
             <label className='font-bold text-lg my-2'>내가 정한 주제</label>
             <input type="text" 
-                className='w-full rounded-full border p-4' 
+                className='w-full rounded-full border p-2' 
                 value={topic} 
                 disabled
                 />

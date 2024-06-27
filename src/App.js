@@ -19,7 +19,7 @@ const App = () => {
     <div style={{backgroundColor: "#f0f2f4"}} className='min-h-screen flex flex-col justify-center items-center'>
       <div className='text-2xl font-bold my-8'>🔬 My Little LAB</div>
       <div className='lg:w-[900px] w-full mb-8'>
-        <div className='flex gap-4'>
+        <div className='flex gap-2'>
           {
           menu.map((item) => {
             return (
