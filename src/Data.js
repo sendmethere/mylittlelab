@@ -1,7 +1,16 @@
 import useStore from "./store"; 
 
 const Data = () => {
-    const { topic, independentVariable, dependentVariable, data, setData, dataCollection, setDataCollection, dataExamples, dataCollectionExamples } = useStore();
+    const { topic, independentVariable, dependentVariable, method, data, setData, addData, dataCollection, setDataCollection, dataExamples, dataCollectionExamples } = useStore();
+
+    const handleClick = (item) => {
+        addData(item);
+      };
+    
+      const handleInputChange = (event) => {
+        setData(event.target.value);
+      };
+    
 
     return (
         <div>
@@ -14,10 +23,10 @@ const Data = () => {
                     />
             </div>
             <hr className='my-4'/>
-            <div className='flex flex-col mb-4'>
-                <label className='font-bold text-lg my-1'>변인</label>
-                <div className='flex gap-4 w-full'>
-                    <div className="flex items-center w-1/2 gap-2">
+            <div className='flex mb-4'>
+                <div className='w-1/2'>
+                    <label className='font-bold text-lg my-1'>변인</label>
+                    <div className="flex items-center gap-2 my-2">
                     <span>독립변인</span>
                     <input type="text" 
                         className='w-[80%] rounded-full border p-2' 
@@ -25,13 +34,22 @@ const Data = () => {
                         disabled
                     />
                     </div>
-                    <div className="flex items-center w-1/2 gap-2">
+                    <div className="flex items-center gap-2 my-2">
                         <span>종속변인</span>
                         <input type="text" 
                         className='w-[80%] rounded-full border p-2' 
                         value={dependentVariable} 
                         disabled
                         />
+                    </div>
+                </div><div className='w-1/2'>
+                    <label className='font-bold text-lg my-1'>연구방법</label>
+                    <div className="flex items-center gap-2 my-2">
+                    <input type="text" 
+                        className='w-full rounded-full border p-2' 
+                        value={method} 
+                        disabled
+                    />
                     </div>
                 </div>
             </div>
@@ -44,7 +62,7 @@ const Data = () => {
                     className='w-full rounded-full border p-2'
                     placeholder='수집할 데이터를 입력하세요'
                     value={data}
-                    onChange={(e) => setData(e.target.value)}
+                    onChange={handleInputChange}
                 />
                 <p className="my-2 text-center opacity-60 text-xs">아래 예시를 선택할 때마다 추가됩니다.</p>
                 <div className="grid grid-cols-2 gap-2">
@@ -60,7 +78,7 @@ const Data = () => {
                                         WebkitBackdropFilter: 'blur(5px)',
                                         border: '1px solid rgba(124, 58, 247, 0.3)',
                                     }}
-                                    onClick={() => setData(example)}>
+                                    onClick={() => handleClick(example)}>
                                     {example}
                                 </div>
                             )

@@ -27,14 +27,55 @@ const useStore = create(
             dataCollection: '',
             consideration: '',
             
+            selectedProperties: [],
+            properties: [
+                {
+                    title: '연구 목적',
+                    items: ['결과 일반화', '심층적 이해'],
+                },
+                {
+                    title: '연구 방법',
+                    items: ['정량적 방법', '정성적 방법'],
+                },
+                {
+                    title: '연구 대상',
+                    items: ['대규모 인원', '소규모 인원'],
+                },
+                {
+                    title: '연구 데이터',
+                    items: ['수치 데이터', '비수치 데이터'],
+                },
+                {
+                    title: '분석 방법',
+                    items: ['통계 분석', '주제 분석'],
+                },
+            ],
+
             setCurrentMenu: (currentMenu) => set({ currentMenu }),
             setTopic: (topic) => set({ topic }),
             setIndependentVariable: (independentVariable) => set({ independentVariable }),
             setDependentVariable: (dependentVariable) => set({ dependentVariable }),
             setMethod: (method) => set({ method }),
             setData: (data) => set({ data }),
+            addData: (item) => set((state) => {
+                const data = state.data;
+                if (data === '') {
+                    return { data: item };
+                } else {
+                    return { data: `${data}, ${item}` };
+                }
+            }),
             setDataCollection: (dataCollection) => set({ dataCollection }),
             setConsideration: (consideration) => set({ consideration }),
+            
+            selectProperty: (item) => set((state) => {
+                const selectedProperties = state.selectedProperties || [];
+                if (selectedProperties.includes(item)) {
+                  return { selectedProperties: selectedProperties.filter(i => i !== item) };
+                } else {
+                  return { selectedProperties: [...selectedProperties, item] };
+                }
+              }),
 
             topicExamples: [
                 '스마트교육 디지털교과서 효과성 검증 도구 개발',

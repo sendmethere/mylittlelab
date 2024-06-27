@@ -18,9 +18,9 @@ const Report = () => {
                     {dependentVariable} 
                 </div>
             </div>
-            <div className='flex flex-col mb-4'>
+            <div className='flex flex-col mb-4 border p-2 rounded-xl'>
                 <p className='font-bold text-lg my-2'>연구방법</p>
-                {method} 
+                {method}  
             </div>
             <div className='grid grid-cols-2 gap-2 mb-4'>
                 <div className='border p-2 rounded-xl'>
@@ -32,7 +32,7 @@ const Report = () => {
                     {dataCollection} 
                 </div>
             </div>
-            <div className='flex flex-col mb-4'>
+            <div className='flex flex-col mb-4 border p-2 rounded-xl'>
                 <p className='font-bold text-lg my-2'>고려사항</p>
                 {consideration} 
                 </div>

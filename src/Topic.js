@@ -15,7 +15,7 @@ const Topic = () => {
         <hr className='my-4'/>
         <p className='font-bold text-lg my-2'>주제 잡는 Tip!</p>
         <div className='rounded-xl text-[#4c8e67] p-4' style={{backgroundColor: 'rgba(114, 204, 143, 0.1)'}}>
-            데이터 기반 현장 연구의 주제는 구체적이고, 교육적 가치가 있어야 하며, 실행가능해야 합니다.
+            데이터 기반 현장 연구의 주제는 구체적이고, 교육적 가치가 있어야 하며, 실행가능해야 합니다. 여러분의 도전 과제를 찾아보세요!
         </div>
         <hr className='my-4'/>
         <p className='font-bold text-lg my-2'>주제 예시</p>
