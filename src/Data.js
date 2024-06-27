@@ -67,7 +67,7 @@ const Data = () => {
                     }
                 </div>
             </div>
-            <div className='w-full md:w-1/2 p-2 rounded-xl bg-fuchsia-100'>
+            <div className='w-full md:w-1/2 p-2 px-4  rounded-xl bg-fuchsia-100'>
             <p className='text-center font-bold text-fuchsia-600 my-2'>수집 방법</p>
                 <input type="text"
                     className='w-full rounded-full border p-2'

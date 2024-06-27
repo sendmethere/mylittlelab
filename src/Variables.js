@@ -1,7 +1,19 @@
 import useStore from './store';
+import variables_guide from './variables_guide.png'
+import { useState } from 'react';
 
 const Variables = () => {
-    const { topic, independentVariable, setIndependentVariable, dependentVariable, setDependentVariable, independentVariableExamples, dependentVariableExamples } = useStore();
+    const { topic, independentVariable, setIndependentVariable, dependentVariable, setDependentVariable, independentVariableExamples, dependentVariableExamples } = useStore();    
+    
+    const [isModalOpen, setModalOpen] = useState(false);
+    const handleModalOpen = () => {
+        setModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
+
     return (
         <div>
         <div className='flex flex-col mb-4'>
@@ -13,7 +25,11 @@ const Variables = () => {
                 />
         </div>
         <hr className='my-4'/>
-        <p className='font-bold text-lg my-2'>변인 설정</p>
+        <div className='flex justify-between items-center'>
+            <p className='font-bold text-lg my-2'>변인 설정</p>
+            <span className='text-sm p-1 px-2 border border-[#81CBCB] text-[#81CBCB] rounded-full cursor-pointer'
+            onClick={handleModalOpen}> 예시 </span>
+        </div>
         <div className='rounded-xl text-[#468080] p-4' style={{backgroundColor: 'rgba(129, 203, 203, 0.1)', lineHeight: 2}}>
         <span className='px-2 py-1 rounded-full bg-orange-100 text-orange-600 shadow-md'>독립변인</span>은 연구자가 실험에서 조작하거나 변화시키는 요소이며, 
         <span className='px-2 py-1 rounded-full bg-lime-100 text-lime-600 shadow-md'>종속변인</span>은 이 변화로 인해 영향을 받는 결과입니다. 
@@ -49,7 +65,7 @@ const Variables = () => {
                     }
                 </div>
             </div>
-            <div className='w-full md:w-1/2 p-2 rounded-xl bg-lime-100'>
+            <div className='w-full md:w-1/2 p-2 px-4 rounded-xl bg-lime-100'>
             <p className='text-center font-bold text-lime-700 my-2'>종속변인</p>
                 <input type="text"
                     className='w-full rounded-full border p-2'
@@ -79,6 +95,27 @@ const Variables = () => {
                 </div>
             </div>
         </div>
+
+        {isModalOpen && (
+        <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+            onClick={handleModalClose}
+        >
+        <div 
+            className="relative"
+            onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside the modal content
+        >
+            <img src={variables_guide} alt="Example" />
+            <button 
+                className="absolute top-2 right-2 text-gray-600"
+                onClick={handleModalClose}
+            >
+            ✕
+            </button>
+            </div>
+        </div>
+        )}
+
         </div>
     );
 

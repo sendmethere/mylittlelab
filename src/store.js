@@ -4,6 +4,8 @@ import { persist } from 'zustand/middleware';
 import Topic from './Topic';
 import Variables from './Variables';
 import Data from './Data';
+import Method from './Method';
+import Report from './Report';
 
 
 const useStore = create(
@@ -12,9 +14,9 @@ const useStore = create(
             menu: [
             { id: 1, name: 'Topic', title: '주제 설정', color: '#81CB9F', icon: 'topic.png', page: <Topic/>},
             { id: 2, name: 'Variables', title: '변인', color: '#81CBCB', icon: 'topic.png', page: <Variables/>},
-            { id: 3, name: 'Method', title: '연구 방법', color: '#819FCB', icon: 'topic.png'},
+            { id: 3, name: 'Method', title: '연구 방법', color: '#819FCB', icon: 'topic.png', page: <Method/>},
             { id: 4, name: 'DataCollection', title: '데이터', color: '#8381CB', icon: 'topic.png', page: <Data/>},
-            { id: 5, name: 'Report', title: '결과물', color: '#A681CB', icon: 'topic.png'}
+            { id: 5, name: 'Report', title: '결과물', color: '#A681CB', icon: 'topic.png', page: <Report/>}
             ],
             currentMenu: 0,
             topic: '',
@@ -89,6 +91,10 @@ const useStore = create(
                 '개념 적용 능력'
             ],
             dataExamples: [
+                '자기주도학습 역량',
+                '비판적사고력',
+                '창의적사고력',
+                '학습 동기',
                 '학생 출석률', 
                 '시험 성적', 
                 '과제 제출율', 
