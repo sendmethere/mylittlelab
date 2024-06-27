@@ -5,7 +5,7 @@ const Report = () => {
     const { topic, independentVariable, dependentVariable, method, data, dataCollection, consideration } = useStore();
     return (
         <div>
-            <div className='mb-4 text-xl font-bold'>
+            <div className='mb-4 text-xl font-bold py-4 rounded-xl hover:bg-slate-100'>
                 <p className='text-center'>{topic}</p>
             </div>
             <div className='grid grid-cols-2 gap-2 mb-4'>
@@ -17,8 +17,6 @@ const Report = () => {
                     <p className='font-bold text-lg'>종속변인</p>
                     {dependentVariable} 
                 </div>
-            </div>
-            <div className='flex flex-col mb-4'>
             </div>
             <div className='flex flex-col mb-4'>
                 <p className='font-bold text-lg my-2'>연구방법</p>

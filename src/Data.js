@@ -46,6 +46,7 @@ const Data = () => {
                     value={data}
                     onChange={(e) => setData(e.target.value)}
                 />
+                <p className="my-2 text-center opacity-60 text-xs">아래 예시를 선택할 때마다 추가됩니다.</p>
                 <div className="grid grid-cols-2 gap-2">
                     {
                         dataExamples.map((example, index) => {
