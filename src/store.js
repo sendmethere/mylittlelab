@@ -213,6 +213,7 @@ const useStore = create(
                     data: state.data,
                     dataCollection: state.dataCollection,
                     consideration: state.consideration,
+                    selectedProperties: state.selectedProperties,
                 }),
             })
     );

@@ -33,7 +33,7 @@ const App = () => {
           {
           menu.map((item) => {
             return (
-            <div id={item.id} key={item.id} style={{backgroundColor: item.color}} className={`w-[100px] rounded-tl-xl rounded-tr-xl p-2 cursor-pointer ${ currentMenu === item.id-1 ? "hover:brightness-110" : "contrast-[0.6] opacity-60 hover:contrast-[0.9] hover:opacity-75"}`} onClick={handleMenuClick}>
+            <div id={item.id} key={item.id} style={{backgroundColor: item.color}} className={`w-[100px] rounded-tl-xl rounded-tr-xl p-2 cursor-pointer transition-all duration-200 ${ currentMenu === item.id-1 ? "hover:brightness-110" : "contrast-[0.6] opacity-60 hover:contrast-[0.9] hover:opacity-75"}`} onClick={handleMenuClick}>
               <p id={item.id} className='font-bold text-center'>{item.title}</p>
             </div>
             )
