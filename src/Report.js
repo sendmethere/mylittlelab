@@ -2,7 +2,12 @@ import React from 'react'
 import useStore from './store'
 
 const Report = () => {
-    const { topic, independentVariable, dependentVariable, method, data, dataCollection, consideration } = useStore();
+    const { topic, independentVariable, dependentVariable, method, data, dataCollection, subject, consideration, setConsideration } = useStore();
+
+    const handleConsiderationChange = (event) => {
+        setConsideration(event.target.value);
+    };
+
     return (
         <div>
             <div className='mb-4 text-xl font-bold py-4 rounded-xl cursor-pointer hover:bg-gray-100'>
@@ -18,9 +23,15 @@ const Report = () => {
                     {dependentVariable} 
                 </div>
             </div>
-            <div className='flex flex-col mb-4 border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
-                <p className='font-bold text-lg my-2'>연구방법</p>
-                {method}  
+            <div className='grid grid-cols-2 gap-2 mb-4'>
+                <div className='border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
+                    <p className='font-bold text-lg'>연구대상</p>
+                    {subject}
+                </div>
+                <div className='border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
+                    <p className='font-bold text-lg'>연구방법</p>
+                    {method} 
+                </div>
             </div>
             <div className='grid grid-cols-2 gap-2 mb-4'>
                 <div className='border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
@@ -34,8 +45,13 @@ const Report = () => {
             </div>
             <div className='flex flex-col mb-4 border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
                 <p className='font-bold text-lg my-2'>고려사항</p>
-                {consideration} 
-                </div>
+                <textarea
+                    className='w-full border p-2 rounded-xl'
+                    value={consideration}
+                    onChange={handleConsiderationChange}
+                    rows={4}
+                />
+            </div>
         </div>
     )
 }

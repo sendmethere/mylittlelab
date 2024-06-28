@@ -26,6 +26,7 @@ const useStore = create(
             data: '',
             dataCollection: '',
             consideration: '',
+            subject: '',
             
             selectedProperties: [],
             properties: [
@@ -67,6 +68,7 @@ const useStore = create(
             }),
             setDataCollection: (dataCollection) => set({ dataCollection }),
             setConsideration: (consideration) => set({ consideration }),
+            setSubject: (subject) => set({ subject }),
             
             selectProperty: (item) => set((state) => {
                 const selectedProperties = state.selectedProperties || [];

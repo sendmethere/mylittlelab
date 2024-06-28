@@ -4,7 +4,7 @@ import useStore from './store'
 const Method = () => {
     const selectedProperties = useStore(state => state.selectedProperties || []);
 
-    const { properties, selectProperty, method, setMethod, topic, independentVariable, dependentVariable } = useStore();
+    const { properties, selectProperty, method, subject, setSubject, setMethod, topic, independentVariable, dependentVariable } = useStore();
   
     const handleClick = (item) => {
         selectProperty(item);
@@ -16,7 +16,7 @@ const Method = () => {
             <div className='flex flex-col mb-4'>
                 <label className='font-bold text-lg my-2'>내가 정한 주제</label>
                 <input type="text" 
-                    className='w-full rounded-full border p-2' 
+                    className='w-full rounded-full border p-2 bg-gray-200' 
                     value={topic} 
                     disabled
                     />
@@ -28,7 +28,7 @@ const Method = () => {
                     <div className="flex items-center gap-2 my-2">
                     <span>독립변인</span>
                     <input type="text" 
-                        className='w-[80%] rounded-full border p-2' 
+                        className='w-[80%] rounded-full border p-2 bg-gray-200' 
                         value={independentVariable} 
                         disabled
                     />
@@ -38,7 +38,7 @@ const Method = () => {
                     <div className="flex items-center gap-2 my-2">
                         <span>종속변인</span>
                         <input type="text" 
-                        className='w-[80%] rounded-full border p-2' 
+                        className='w-[80%] rounded-full border p-2 bg-gray-200' 
                         value={dependentVariable} 
                         disabled
                         />
@@ -46,10 +46,17 @@ const Method = () => {
                 </div>
             </div>
             <hr className='my-4'/>
-        <p className='font-bold text-lg my-2'>연구 주제에 맞는 요소를 선택해볼까요?</p>
-        <div className='grid grid-cols-5 gap-2'>
-            
-            {
+            <p className='font-bold text-lg my-2'>연구의 대상은 누구(무엇)인가요?</p>
+            <input type="text" 
+                className='w-full rounded-full border p-2' 
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                placeholder='연구 대상을 입력하세요!'
+                />
+            <hr className='my-4'/>
+            <p className='font-bold text-lg my-2'>하고자 하는 연구의 속성은 어떤가요?</p>
+            <div className='grid grid-cols-5 gap-2'>
+                {
                 properties.map((property, index) => {
                     return (
                         <div>
