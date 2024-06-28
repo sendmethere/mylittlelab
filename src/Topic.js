@@ -23,7 +23,7 @@ const Topic = () => {
             {topicExamples.map((example, index) => {
                 return (
                     <div key={index} 
-                        className='w-full md:w-[150px] h-[150px] text-center p-2 m-2 rounded-xl cursor-pointer mx-auto'
+                        className='w-full md:w-[150px] h-[150px] text-center p-2 m-2 rounded-xl cursor-pointer mx-auto  transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1'
                         style={{
                             background: 'rgba(114, 204, 143, 0.2)',
                             borderRadius: '16px',
