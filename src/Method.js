@@ -10,10 +10,6 @@ const Method = () => {
         selectProperty(item);
     };
 
-    const handleMethodClick = (item) => {
-        setMethod(item);
-    }
-
 
     return (
         <div>
