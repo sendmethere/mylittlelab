@@ -5,34 +5,34 @@ const Report = () => {
     const { topic, independentVariable, dependentVariable, method, data, dataCollection, consideration } = useStore();
     return (
         <div>
-            <div className='mb-4 text-xl font-bold py-4 rounded-xl hover:bg-slate-100'>
-                <p className='text-center'>{topic}</p>
+            <div className='mb-4 text-xl font-bold py-4 rounded-xl cursor-pointer hover:bg-gray-100'>
+            {topic !== "" ? <p className='text-center'> {topic}</p> : <p className='text-gray-400 text-center'>연구 주제를 입력해주세요</p> }
             </div>
             <div className='grid grid-cols-2 gap-2 mb-4'>
-                <div className='border p-2 rounded-xl'>
+                <div className='border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
                     <p className='font-bold text-lg'>독립변인</p>
                     {independentVariable}
                 </div>
-                <div className='border p-2 rounded-xl'>
+                <div className='border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
                     <p className='font-bold text-lg'>종속변인</p>
                     {dependentVariable} 
                 </div>
             </div>
-            <div className='flex flex-col mb-4 border p-2 rounded-xl'>
+            <div className='flex flex-col mb-4 border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
                 <p className='font-bold text-lg my-2'>연구방법</p>
                 {method}  
             </div>
             <div className='grid grid-cols-2 gap-2 mb-4'>
-                <div className='border p-2 rounded-xl'>
+                <div className='border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
                     <p className='font-bold text-lg'>데이터</p>
                     {data}
                 </div>
-                <div className='border p-2 rounded-xl'>
+                <div className='border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
                     <p className='font-bold text-lg'>데이터 수집</p>
                     {dataCollection} 
                 </div>
             </div>
-            <div className='flex flex-col mb-4 border p-2 rounded-xl'>
+            <div className='flex flex-col mb-4 border p-2 rounded-xl cursor-pointer hover:bg-gray-100'>
                 <p className='font-bold text-lg my-2'>고려사항</p>
                 {consideration} 
                 </div>

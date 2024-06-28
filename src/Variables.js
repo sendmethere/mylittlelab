@@ -28,7 +28,7 @@ const Variables = () => {
         <div className='flex justify-between items-center'>
             <p className='font-bold text-lg my-2'>변인 설정</p>
             <span className='text-sm p-1 px-2 border border-[#81CBCB] text-[#81CBCB] rounded-full cursor-pointer'
-            onClick={handleModalOpen}> 예시 </span>
+            onClick={handleModalOpen}> 가이드 </span>
         </div>
         <div className='rounded-xl text-[#468080] p-4' style={{backgroundColor: 'rgba(129, 203, 203, 0.1)', lineHeight: 2}}>
         <span className='px-2 py-1 rounded-full bg-orange-100 text-orange-600 shadow-md'>독립변인</span>은 연구자가 실험에서 조작하거나 변화시키는 요소이며, 

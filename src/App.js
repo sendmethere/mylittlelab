@@ -41,7 +41,7 @@ const App = () => {
         }
         </div>
       <div style={{backgroundColor: menu[currentMenu].color }} className='w-full p-6 md:rounded-tr-xl rounded-b-xl shadow-md transition-all duration-200' >
-        <div className='bg-white rounded-xl w-full md:h-[450px] md:overflow-y-scroll p-6'>
+        <div className='bg-white rounded-xl w-full md:h-[500px] md:overflow-y-scroll p-6'>
           {menu[currentMenu].page}
         </div>
       </div>
