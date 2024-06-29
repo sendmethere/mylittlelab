@@ -3,7 +3,7 @@ import variables_guide from './variables_guide.png'
 import { useState } from 'react';
 
 const Variables = () => {
-    const { topic, independentVariable, setIndependentVariable, dependentVariable, setDependentVariable, independentVariableExamples, dependentVariableExamples } = useStore();    
+    const { menu, topic, independentVariable, setIndependentVariable, addIndependentVariable ,dependentVariable, setDependentVariable, addDependentVariable, independentVariableExamples, dependentVariableExamples } = useStore();    
     
     const [isModalOpen, setModalOpen] = useState(false);
     const handleModalOpen = () => {
@@ -27,7 +27,9 @@ const Variables = () => {
         <hr className='my-4'/>
         <div className='flex justify-between items-center'>
             <p className='font-bold text-lg my-2'>변인 설정</p>
-            <span className='text-sm p-1 px-2 border border-[#81CBCB] text-[#81CBCB] rounded-full cursor-pointer'
+            <span 
+            style={{borderColor : menu[2].color, color: menu[2].textColor}} 
+            className='text-sm p-1 px-2 border rounded-full cursor-pointer'
             onClick={handleModalOpen}> 가이드 </span>
         </div>
         <div className='rounded-xl text-[#468080] p-4' style={{backgroundColor: 'rgba(129, 203, 203, 0.1)', lineHeight: 2}}>
@@ -44,6 +46,7 @@ const Variables = () => {
                     value={independentVariable}
                     onChange={(e) => setIndependentVariable(e.target.value)}
                 />
+                <p className="my-2 text-center opacity-60 text-xs">아래 예시를 선택할 때마다 추가됩니다.</p>
                 <div>
                     {
                         independentVariableExamples.map((example, index) => {
@@ -57,7 +60,7 @@ const Variables = () => {
                                         WebkitBackdropFilter: 'blur(5px)',
                                         border: '1px solid rgba(255, 165, 0, 0.3)',
                                     }}
-                                    onClick={() => setIndependentVariable(example)}>
+                                    onClick={() => addIndependentVariable(example)}>
                                     {example}
                                 </div>
                             )
@@ -73,6 +76,7 @@ const Variables = () => {
                     value={dependentVariable}
                     onChange={(e) => setDependentVariable(e.target.value)}
                 />
+                <p className="my-2 text-center opacity-60 text-xs">아래 예시를 선택할 때마다 추가됩니다.</p>
                 <div>
                     {
                         dependentVariableExamples.map((example, index) => {
@@ -86,7 +90,7 @@ const Variables = () => {
                                         WebkitBackdropFilter: 'blur(5px)',
                                         border: '1px solid rgba(50, 205, 50, 0.3)',
                                     }}
-                                    onClick={() => setDependentVariable(example)}>
+                                    onClick={() => addDependentVariable(example)}>
                                     {example}
                                 </div>
                             )

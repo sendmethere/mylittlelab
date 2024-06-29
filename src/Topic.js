@@ -1,11 +1,27 @@
+import { useState } from 'react';
 import useStore from './store';
+import topic_guide from './topic_guide.png'
 
 const Topic = () => {
-    const { topic, setTopic, topicExamples } = useStore();
+    const { menu, topic, setTopic, topicExamples } = useStore();
+
+    const [isModalOpen, setModalOpen] = useState(false);
+    const handleModalOpen = () => {
+        setModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
+
     return (
         <div>
         <div className='flex flex-col mb-4'>
-            <label className='font-bold text-lg my-2'>주제</label>
+            <div className='flex justify-between items-center'><label className='font-bold text-lg my-2'>주제</label><span 
+            style={{borderColor : menu[1].color, color: menu[1].textColor}} 
+            className='text-sm p-1 px-2 border rounded-full cursor-pointer'
+            onClick={handleModalOpen}> 가이드 </span>
+            </div>
             <input type="text" 
                 className='w-full rounded-full border p-4' 
                 value={topic} 
@@ -38,6 +54,25 @@ const Topic = () => {
                 )
             })}
         </div>
+        {isModalOpen && (
+        <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+            onClick={handleModalClose}
+        >
+        <div 
+            className="relative"
+            onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside the modal content
+        >
+            <img src={topic_guide} alt="Example" />
+            <button 
+                className="absolute top-2 right-2 text-gray-600"
+                onClick={handleModalClose}
+            >
+            ✕
+            </button>
+            </div>
+        </div>
+        )}
         </div>
     );
 

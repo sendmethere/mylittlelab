@@ -1,13 +1,29 @@
 import React from 'react'
 import useStore from './store'
+import { useState } from 'react';
+import method1_guide from './method1_guide.png'
+import method2_guide from './method2_guide.png'
+import method3_guide from './method3_guide.png'
 
 const Method = () => {
     const selectedProperties = useStore(state => state.selectedProperties || []);
 
-    const { properties, selectProperty, method, subject, setSubject, setMethod, topic, independentVariable, dependentVariable } = useStore();
+    const {properties, selectProperty, method, subject, setSubject, setMethod, topic, independentVariable, dependentVariable } = useStore();
   
     const handleClick = (item) => {
         selectProperty(item);
+    };
+
+    const [isModalOpen, setModalOpen] = useState(false);
+    const [currentModal, setCurrentModal] = useState(1);
+    
+    const handleModalOpen = (no) => {
+        setModalOpen(true);
+        setCurrentModal(no);
+    };
+
+    const handleModalClose = () => {
+        setModalOpen(false);
     };
 
 
@@ -96,29 +112,65 @@ const Method = () => {
         <p className='text-right text-xs mb-4'>연구 방법을 더 구체적으로 정해도  좋아요!</p>
         <div className='grid grid-cols-3 gap-2'>
             <div className=' opacity-50 hover:opacity-100 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1'  onClick={()=>{setMethod('양적 연구')}}>
-                <div className='p-2 bg-red-200 rounded-tl-xl rounded-tr-xl text-center cursor-pointer'>양적 연구</div>
+                <div className='p-2 bg-red-200 rounded-tl-xl rounded-tr-xl text-center cursor-pointer flex justify-between items-center'>
+                    <span className='font-bold'>양적 연구</span>
+                    <span 
+                        className='text-sm p-1 px-2 border rounded-full cursor-pointer bg-white'
+                        onClick={(e) => {e.stopPropagation(); handleModalOpen(1)}}> 가이드
+                    </span>
+                </div> 
                 <div className='p-2 indent-2 rounded-bl-xl rounded-br-xl bg-gray-100'>
                     <p>양적연구는 수치 데이터를 수집하고 분석하여 객관적이고 일반화 가능한 결론을 도출하는 연구 방법입니다.</p>
                     <p>양적 연구의 종류로는 설문 조사, 실험 연구, 종단 연구, 횡단 연구 등의 방법이 있습니다.</p> 
                 </div>
             </div>
             <div className=' opacity-50 hover:opacity-100 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1' onClick={()=>{setMethod('질적 연구')}}>
-                <div className='p-2 bg-blue-200 rounded-tl-xl rounded-tr-xl text-center'>질적 연구</div>
+                <div className='p-2 bg-blue-200 rounded-tl-xl rounded-tr-xl text-center cursor-pointer flex justify-between items-center'>
+                    <span className='font-bold'>질적 연구</span>
+                    <span 
+                        className='text-sm p-1 px-2 border rounded-full cursor-pointer bg-white'
+                        onClick={(e) => {e.stopPropagation(); handleModalOpen(2);}}> 가이드
+                    </span>
+                </div> 
                 <div className='p-2 indent-2 rounded-bl-xl rounded-br-xl bg-gray-100'>
                     <p>질적연구는 연구 대상자의 경험, 생각, 감정, 그리고 사회적 맥락을 깊이 이해하기 위해 비수치적 데이터를 수집하고 분석하는 연구 방법입니다.</p>
                     <p>질적 연구의 종류로는 심층 인터뷰, 참여 관찰, 문헌 분석 등의 방법이 있습니다.</p> 
                 </div>
             </div>
             <div className=' opacity-50 hover:opacity-100 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1' onClick={()=>{setMethod('혼합 연구')}}>
-                <div className='p-2 bg-violet-200 rounded-tl-xl rounded-tr-xl text-center'>혼합 연구</div>
+                <div className='p-2 bg-violet-200 rounded-tl-xl rounded-tr-xl text-center cursor-pointer flex justify-between items-center'>
+                    <span className='font-bold'>혼합 연구</span>
+                    <span 
+                        className='text-sm p-1 px-2 border rounded-full cursor-pointer bg-white'
+                        onClick={(e) => {e.stopPropagation(); handleModalOpen(3);}}> 가이드
+                    </span>
+                </div> 
                 <div className='p-2 indent-2 rounded-bl-xl rounded-br-xl bg-gray-100'>
                         <p>혼합 연구는 양적 연구와 질적 연구를 결합하여 사용하는 연구 방법으로 양적 연구의 객관적 데이터와 질적 연구의 심층적 이해를 결합시킬 수 있습니다.</p>
                         <p>혼합 연구의 종류로는 동시적 혼합 방법, 순차적 혼합 방법, 내장형 혼합 방법 등이 있습니다.</p> 
                 </div>
             </div>
         </div>
-
+        {isModalOpen && (
+        <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+            onClick={handleModalClose}
+        >
+            <div 
+                className="relative"
+                onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside the modal content
+            >
+                <img src={["",method1_guide,method2_guide,method3_guide][currentModal]} alt="Example" />
+                <button 
+                    className="absolute top-2 right-2 text-gray-600"
+                    onClick={handleModalClose}
+                >
+                ✕
+                </button>
+            </div>
         </div>
+        )}
+    </div>
     )
 } 
 

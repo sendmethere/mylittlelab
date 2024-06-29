@@ -6,17 +6,19 @@ import Variables from './Variables';
 import Data from './Data';
 import Method from './Method';
 import Report from './Report';
+import Guide from './Guide';
 
 
 const useStore = create(
     persist(
             set => ({
             menu: [
-            { id: 1, name: 'Topic', title: '주제 설정', color: '#81CB9F', icon: 'topic.png', page: <Topic/>},
-            { id: 2, name: 'Variables', title: '변인', color: '#81CBCB', icon: 'topic.png', page: <Variables/>},
-            { id: 3, name: 'Method', title: '연구 방법', color: '#819FCB', icon: 'topic.png', page: <Method/>},
-            { id: 4, name: 'DataCollection', title: '데이터', color: '#8381CB', icon: 'topic.png', page: <Data/>},
-            { id: 5, name: 'Report', title: '결과물', color: '#A681CB', icon: 'topic.png', page: <Report/>}
+            { id: 1, name: 'Guide', title: '가이드', color: '#CCDF97', textColor:'#90A948', icon: 'topic.png', page: <Guide/>},
+            { id: 2, name: 'Topic', title: '주제 설정', color: '#81CB9F', textColor: '#3D9B63', icon: 'topic.png', page: <Topic/>},
+            { id: 3, name: 'Variables', title: '변인', color: '#81CBCB', textColor: '#41AFAF', icon: 'topic.png', page: <Variables/>},
+            { id: 4, name: 'Method', title: '연구 방법', color: '#819FCB', textColor: '#3763A2', icon: 'topic.png', page: <Method/>},
+            { id: 5, name: 'DataCollection', title: '데이터', color: '#8381CB', icon: 'topic.png', page: <Data/>},
+            { id: 6, name: 'Report', title: '결과물', color: '#A681CB', icon: 'topic.png', page: <Report/>}
             ],
             currentMenu: 0,
             topic: '',
@@ -55,7 +57,24 @@ const useStore = create(
             setCurrentMenu: (currentMenu) => set({ currentMenu }),
             setTopic: (topic) => set({ topic }),
             setIndependentVariable: (independentVariable) => set({ independentVariable }),
+            addIndependentVariable: (item) => set((state) => {
+                const independentVariable = state.independentVariable;
+                if (independentVariable === '') {
+                    return { independentVariable: item };
+                } else {
+                    return { independentVariable: `${independentVariable}, ${item}` };
+                }
+            }),
             setDependentVariable: (dependentVariable) => set({ dependentVariable }),
+            addDependentVariable: (item) => set((state) => {
+                const dependentVariable = state.dependentVariable;
+                if (dependentVariable === '') {
+                    return { dependentVariable: item };
+                } else {
+                    return { dependentVariable: `${dependentVariable}, ${item}` };
+                }
+            },
+            ),
             setMethod: (method) => set({ method }),
             setData: (data) => set({ data }),
             addData: (item) => set((state) => {
@@ -73,11 +92,11 @@ const useStore = create(
             selectProperty: (item) => set((state) => {
                 const selectedProperties = state.selectedProperties || [];
                 if (selectedProperties.includes(item)) {
-                  return { selectedProperties: selectedProperties.filter(i => i !== item) };
+                    return { selectedProperties: selectedProperties.filter(i => i !== item) };
                 } else {
-                  return { selectedProperties: [...selectedProperties, item] };
+                    return { selectedProperties: [...selectedProperties, item] };
                 }
-              }),
+            }),
 
             topicExamples: [
                 '스마트교육 디지털교과서 효과성 검증 도구 개발',
